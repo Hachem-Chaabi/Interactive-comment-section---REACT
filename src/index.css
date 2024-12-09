@@ -1,0 +1,572 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+/* reset styles */
+* {
+  color: inherit;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+body {
+  font-family: Rubik;
+  background-color: rgb(244, 243, 243);
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  border: 0;
+  border-top: 1px dotted #efefef;
+}
+
+img {
+  max-width: 100%;
+}
+
+/**/
+.textarea-comment {
+  font-family: Rubik;
+  width: 70%;
+  resize: none;
+  outline: none;
+  border-radius: 8px;
+  border: 1px solid lightgray;
+  padding: 8px 10px 8px 10px;
+  height: fit-content;
+}
+.textarea-comment:focus {
+  border: 1px solid hsl(238, 40%, 52%);
+}
+.textarea-comment::placeholder {
+  color: hsl(211, 10%, 45%);
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 100%;
+  width: 80%;
+  padding: 50px 0;
+}
+section .comments__container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+section .principal-comment-container {
+  width: 95%;
+}
+.reply-comment-container {
+  width: 100%;
+}
+section .principal-comment-container .comment-container-content,
+section .reply-comment-container .comment-container-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+section
+  .principal-comment-container
+  .comment-container-content
+  .right-comment-content,
+section
+  .reply-comment-container
+  .comment-container-content
+  .right-comment-content {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+  width: 100%;
+}
+section
+  .principal-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos,
+section
+  .reply-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+section
+  .principal-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .profile-container,
+section
+  .reply-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+section
+  .principal-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .profile-container
+  .avatar-name,
+section
+  .reply-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .profile-container
+  .avatar-name {
+  font-weight: 500;
+}
+section
+  .principal-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .profile-container
+  .date,
+section
+  .reply-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .profile-container
+  .date {
+  font-weight: 400;
+  color: hsl(211, 10%, 45%);
+}
+section
+  .principal-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .reply-container,
+section
+  .reply-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .reply-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+section
+  .principal-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .reply-container:hover,
+section
+  .reply-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .reply-container:hover {
+  opacity: 0.5;
+  transition: 0.2s;
+}
+section
+  .principal-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .reply-container
+  p,
+section
+  .reply-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .reply-container
+  p {
+  color: hsl(238, 40%, 52%);
+  font-weight: 500;
+}
+section
+  .principal-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .avatar,
+section
+  .reply-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .avatar {
+  width: 36px;
+  height: 36px;
+}
+section
+  .principal-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .delete-edit-container,
+section
+  .reply-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .delete-edit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+section
+  .principal-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .delete-edit-container
+  .delete-edit,
+section
+  .reply-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .delete-edit-container
+  .delete-edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+section
+  .principal-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .delete-edit-container
+  .delete-edit:hover,
+section
+  .reply-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .delete-edit-container
+  .delete-edit:hover {
+  opacity: 0.5;
+  transition: 0.2s;
+}
+section
+  .principal-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .delete-edit-container
+  .delete-edit
+  .delete,
+section
+  .reply-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .delete-edit-container
+  .delete-edit
+  .delete {
+  color: hsl(358, 79%, 66%);
+  font-weight: 500;
+}
+section
+  .principal-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .delete-edit-container
+  .delete-edit
+  .edit,
+section
+  .reply-comment-container
+  .comment-container-content
+  .right-comment-content
+  .comment-infos
+  .delete-edit-container
+  .delete-edit
+  .edit {
+  color: hsl(238, 40%, 52%);
+  font-weight: 500;
+}
+section
+  .principal-comment-container
+  .comment-container-content
+  .right-comment-content
+  .text-container
+  p,
+section
+  .reply-comment-container
+  .comment-container-content
+  .right-comment-content
+  .text-container
+  p {
+  font-size: 16px;
+  line-height: 24px;
+}
+section
+  .principal-comment-container
+  .comment-container-content
+  .left-comment-container,
+section
+  .reply-comment-container
+  .comment-container-content
+  .left-comment-container {
+  background-color: hsl(0, 0%, 96%);
+  border-radius: 10px;
+  display: flex;
+  align-self: flex-start;
+}
+section
+  .principal-comment-container
+  .comment-container-content
+  .left-comment-container
+  .interaction-container,
+section
+  .reply-comment-container
+  .comment-container-content
+  .left-comment-container
+  .interaction-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 12px 15px 12px;
+  width: 18px;
+}
+section
+  .principal-comment-container
+  .comment-container-content
+  .left-comment-container
+  .interaction-container
+  img,
+section
+  .reply-comment-container
+  .comment-container-content
+  .left-comment-container
+  .interaction-container
+  img {
+  cursor: pointer;
+}
+section
+  .principal-comment-container
+  .comment-container-content
+  .left-comment-container
+  .interaction-container
+  p,
+section
+  .reply-comment-container
+  .comment-container-content
+  .left-comment-container
+  .interaction-container
+  p {
+  color: hsl(238, 40%, 52%);
+  font-weight: 500;
+}
+section .replies-comment-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 54px;
+  width: 100%;
+}
+section .replies-comment-container .replies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  max-width: 85%;
+  width: 100%;
+  border-left: 1px solid hsl(0, 0%, 87%);
+  padding-left: 55px;
+}
+section .replies-comment-container .replies .reply {
+  display: flex;
+}
+section .add__comment-container {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  border-radius: 12px;
+  padding: 20px 0 20px 0;
+  gap: 16px;
+  /* border: 1.5px solid hsl(240, 1%, 84%); */
+}
+section .add__comment-container img {
+  width: 44px;
+  height: 44px;
+}
+section .add__comment-container .textarea-comment {
+  font-family: Rubik;
+  width: 70%;
+  resize: none;
+  outline: none;
+  border-radius: 8px;
+  border: 1px solid #e7e7e7;
+  padding: 8px 10px 8px 10px;
+  height: 100px;
+}
+section .add__comment-container .textarea-comment:focus {
+  border: 1px solid hsl(238, 40%, 52%);
+}
+section .add__comment-container .textarea-comment::placeholder {
+  color: hsl(211, 10%, 45%);
+}
+section .add__comment-container button {
+  font-family: Rubik;
+  font-weight: 500;
+  color: white;
+  background-color: hsl(238, 40%, 52%);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px 10px 15px;
+  cursor: pointer;
+}
+section .add__comment-container button:hover {
+  opacity: 0.5;
+  transition: 0.2s;
+}
+
+.tag-name {
+  color: hsl(238, 40%, 52%);
+  font-weight: 500;
+}
+
+.user-comment {
+  color: white;
+  background-color: hsl(238, 40%, 52%);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.comment {
+  border-radius: 12px;
+  /* border: 1.5px solid hsl(240, 1%, 84%); */
+  padding: 25px;
+  background-color: white;
+}
+
+.when__reply {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.btn-update {
+  font-family: Rubik;
+  font-weight: 500;
+  color: white;
+  background-color: hsl(238, 40%, 52%);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px 10px 15px;
+  cursor: pointer;
+}
+.btn-update:hover {
+  opacity: 0.5;
+  transition: 0.2s;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.delete-confirm-container {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+}
+
+.delete-confirm {
+  background-color: white;
+  border-radius: 20px;
+  width: 330px;
+  padding: 30px;
+}
+
+.delete-confirm h1 {
+  color: #2c333c;
+  margin-bottom: 20px;
+}
+
+.delete-confirm .buttons-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.delete-confirm .buttons-container button {
+  flex: 1;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+  background-color: #68727e;
+  border: none;
+  padding: 15px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#delete-confirm-btn {
+  background-color: #ed6368;
+}
+
+.update-comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+}
+.update-comment .btn-update {
+  align-self: flex-end;
+}
+.update-comment .update-textarea {
+  width: 90%;
+  height: 100px;
+  font-size: 16px;
+}
