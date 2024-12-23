@@ -78,6 +78,7 @@ const Comment = ({ comment, index, useComments, setUseComments }) => {
           />
         </div>
       </div>
+
       {displayReply && index === comment.id && (
         <SendReply
           useComments={useComments}
@@ -114,7 +115,7 @@ const CommentContent = ({
       </div>
       <div className="right-comment-content">
         <div className="comment-infos">
-          <Profile comment={comment} key={comment.id} />
+          <Profile comment={comment} />
           <div className="delete-edit-container">
             {comment.user.username === currentUser.username ? (
               <>
@@ -124,20 +125,16 @@ const CommentContent = ({
                   useComments={useComments}
                   setUseComments={setUseComments}
                 />{" "}
-                <EditBtn
-                  key={comment.id + 10}
-                  comment={comment}
-                  isOpen={isOpen}
-                  setIsOpen={setIsOpen}
-                  toggleEdit={toggleEdit}
-                />
+                <EditBtn key={comment.id + 10} toggleEdit={toggleEdit} />
               </>
             ) : (
-              <ReplyBtn
-                key={comment.id}
-                displayReply={displayReply}
-                setDisplayReply={setDisplayReply}
-              />
+              !("replyingTo" in comment) && (
+                <ReplyBtn
+                  key={comment.id}
+                  displayReply={displayReply}
+                  setDisplayReply={setDisplayReply}
+                />
+              )
             )}
           </div>
         </div>
@@ -369,7 +366,7 @@ const ConfirmationPopup = ({
   );
 };
 
-const EditBtn = ({ comment, isOpen, setIsOpen, toggleEdit }) => {
+const EditBtn = ({ toggleEdit }) => {
   return (
     <div className="delete-edit" onClick={toggleEdit}>
       <img src="images/icon-edit.svg" alt="edit icon" />
@@ -413,7 +410,7 @@ const Update = ({
   useComments,
   setUseComments,
 }) => {
-  let commentValue = "";
+  const [commentValue, setCommentValue] = useState(comment.content);
 
   const updateReply = (commentValue) => {
     const updatedReplies = useComments.map((co) =>
@@ -434,7 +431,7 @@ const Update = ({
   };
 
   const handleUpdateComment = (targetValue) => {
-    commentValue = targetValue;
+    setCommentValue((commentValue) => (commentValue = targetValue));
     if ("replyingTo" in comment) {
       updateReply(commentValue);
     } else {
@@ -451,7 +448,7 @@ const Update = ({
   return (
     <div className="update-comment">
       <textarea
-        value={comment.content}
+        value={commentValue}
         className="update-textarea textarea-comment"
         id="id"
         onChange={(e) => handleUpdateComment(e.target.value)}
@@ -461,7 +458,7 @@ const Update = ({
       <button
         className="btn-send btn-update"
         onClick={() => {
-          // if (commentValue !== "" && commentValue.trim() !== "")
+          if (commentValue !== "" && commentValue.trim() !== "")
             setIsOpen((isOpen = false));
         }}
       >
